@@ -49,16 +49,15 @@ jobs:
       run: dotnet publish --configuration Release
 
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.6.1
-      with:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        BRANCH: test # The branch the action should deploy to.
-        FOLDER: bin/Release/net5.0/publish/wwwroot/ # The folder the action should deploy.¨
-        REPOSITORY_NAME: yourilima/yourilima.github.io
-        TARGET_FOLDER: blazor
-        COMMIT_MESSAGE: release of blazor tests
-        CLEAN: true # Automatically remove deleted files from the deploy branch
+    - uses: actions/checkout@v2
+    - name: move files
+      run: cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/ /home/runner/work/blazor-test/blazor-test/docs
+    - name: Commit report
+      run: |
+        git config --global user.name 'github actions'
+        git config --global user.email 'yourilima@users.noreply.github.com'
+        git commit -am "Automated publish"
+        git push
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.1.4
