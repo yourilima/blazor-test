@@ -48,6 +48,18 @@ jobs:
     - name: Create the app package
       run: dotnet publish --configuration Release
 
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@3.6.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        BRANCH: master # The branch the action should deploy to.
+        FOLDER: bin/Release/net5.0/publish/ # The folder the action should deploy.¨
+        REPOSITORY_NAME: yourilima/yourilima.github.io
+        TARGET_FOLDER: blazor
+        COMMIT_MESSAGE: release of blazor tests
+        CLEAN: true # Automatically remove deleted files from the deploy branch
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.1.4
       with:
