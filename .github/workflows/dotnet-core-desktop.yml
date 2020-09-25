@@ -54,6 +54,6 @@ jobs:
         # Artifact name
         name: wasm # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: D:\a\blazor-test\blazor-test\bin\Release\net5.0\publish\
+        path: /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/
         # The desired behavior if no files are found using the provided path.
         if-no-files-found: warn
