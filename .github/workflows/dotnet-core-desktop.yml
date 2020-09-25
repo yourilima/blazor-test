@@ -52,7 +52,7 @@ jobs:
     - name: Create the app package
       run: dotnet publish --configuration Release
 
-      - name: Upload a Build Artifact
+    - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.1.4
       with:
         # Artifact name
