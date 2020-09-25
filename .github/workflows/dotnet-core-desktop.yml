@@ -49,11 +49,14 @@ jobs:
       run: dotnet publish --configuration Release
 
     - name: move files
-      run: cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/ /home/runner/work/blazor-test/blazor-test/docs
+      run: |
+        rm -rf docs/*
+        cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/ /home/runner/work/blazor-test/blazor-test/docs
     - name: Commit report
       run: |
         git config --global user.name 'github actions'
         git config --global user.email 'yourilima@users.noreply.github.com'
+        git add docs
         git commit -am "Automated publish"
         git push
 
