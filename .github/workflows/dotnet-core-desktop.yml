@@ -51,7 +51,7 @@ jobs:
     - name: move files
       run: |
         rm -rf docs/*
-        cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/wwwroot /home/runner/work/blazor-test/blazor-test/docs
+        cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/wwwroot/ /home/runner/work/blazor-test/blazor-test/docs
     - name: Commit report
       run: |
         git config --global user.name 'github actions'
