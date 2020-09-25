@@ -48,8 +48,6 @@ jobs:
     - name: Create the app package
       run: dotnet publish --configuration Release
 
-
-    - uses: actions/checkout@v2
     - name: move files
       run: cp -R /home/runner/work/blazor-test/blazor-test/bin/Release/net5.0/publish/ /home/runner/work/blazor-test/blazor-test/docs
     - name: Commit report
